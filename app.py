@@ -7,6 +7,8 @@ from resources.item import Item, ItemList
 from resources.store import  Store, StoreList
 from security import authenticate, identity
 
+
+
 # flask_restful uses jsonify for dicts automatically
 
 app = Flask(__name__)
@@ -20,6 +22,7 @@ api = Api(app)
 # def create_tables():
 #     db.create_all()
 
+jwt = JWT(app,authenticate,identity) # /auth
 
 #/student/<name>
 api.add_resource(Store,'/store/<string:name>')
